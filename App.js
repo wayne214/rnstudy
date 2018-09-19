@@ -5,11 +5,13 @@
  */
 
 import React, { Component } from 'react';
+import CodePush from 'react-native-code-push';
 import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
+    AppState
 } from 'react-native';
 
 const instructions = Platform.select({
@@ -21,6 +23,12 @@ const instructions = Platform.select({
 const dataarray=['AI应用场景','AI基础支持','AI通用应用',]
 type Props = {};
 export default class App extends Component<Props> {
+    componentDidMount() {
+        AppState.addEventListener("change", (newState) => {
+            newState === "active" && CodePush.sync();
+        });
+
+    }
   render() {
     return (
       <View style={styles.container}>

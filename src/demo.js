@@ -6,15 +6,15 @@
 
 import React, { Component } from 'react';
 import {
-  Platform,
-  StyleSheet,
-  Text,
-  View,
-  FlatList,
-    TouchableOpacity
+    Platform,
+    StyleSheet,
+    Text,
+    View,
+    FlatList,
+    TouchableOpacity, AppState
 } from 'react-native';
 import * as AddCalendarEvent from 'react-native-add-calendar-event';
-
+import CodePush from 'react-native-code-push';
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
     'Cmd+D or shake for dev menu',
@@ -32,6 +32,9 @@ export default class demo extends Component<Props> {
 
     componentWillMount() {
         console.log('componentWillMount');
+        AppState.addEventListener("change", (newState) => {
+            newState === "active" && CodePush.sync();
+        });
     }
     componentDidMount() {
         console.log('componentDidMount');
@@ -76,7 +79,8 @@ export default class demo extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-          <Text>测试一下</Text>
+          <Text>codepush了解一下？</Text>
+          <Text>codepush热更新？</Text>
           <TouchableOpacity onPress={()=> {
               console.log('打印了吗');
               this.openCalendar()
