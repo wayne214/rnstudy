@@ -2288,7 +2288,7 @@ fbjs-scripts@^0.8.1:
     semver "^5.1.0"
     through2 "^2.0.0"
 
-fbjs@^0.8.14, fbjs@^0.8.16, fbjs@^0.8.9:
+fbjs@^0.8.14, fbjs@^0.8.16, fbjs@^0.8.17, fbjs@^0.8.9:
   version "0.8.17"
   resolved "http://registry.npm.taobao.org/fbjs/download/fbjs-0.8.17.tgz#c4d598ead6949112653d6588b01a5cdcd9f90fdd"
   dependencies:
@@ -4742,6 +4742,13 @@ react-native-code-push@^5.4.2:
     inquirer "1.1.2"
     plist "3.0.1"
     xcode "1.0.0"
+
+react-native-webview-crossplatform@^2.5.0:
+  version "2.5.0"
+  resolved "http://registry.npm.taobao.org/react-native-webview-crossplatform/download/react-native-webview-crossplatform-2.5.0.tgz#de6392091948cedbd8617bc9f1dba3e442bd39c7"
+  dependencies:
+    escape-string-regexp "^1.0.5"
+    fbjs "^0.8.17"
 
 react-native@0.55.4:
   version "0.55.4"

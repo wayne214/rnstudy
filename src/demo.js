@@ -33,7 +33,11 @@ export default class demo extends Component<Props> {
     componentWillMount() {
         console.log('componentWillMount');
         AppState.addEventListener("change", (newState) => {
-            newState === "active" && CodePush.sync();
+            const options = {
+                installMode: CodePush.InstallMode.IMMEDIATE,
+                updateDialog: true
+            };
+            newState === "active" && CodePush.sync(options);
         });
     }
     componentDidMount() {
@@ -81,6 +85,7 @@ export default class demo extends Component<Props> {
       <View style={styles.container}>
           <Text>codepush了解一下？</Text>
           <Text>codepush热更新？</Text>
+          <Text>啦啦啦，我是卖报的小行家？</Text>
           <TouchableOpacity onPress={()=> {
               console.log('打印了吗');
               this.openCalendar()

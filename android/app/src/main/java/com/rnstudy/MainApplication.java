@@ -3,6 +3,7 @@ package com.rnstudy;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.reactnativecommunity.webview.RNCWebViewPackage;
 import com.microsoft.codepush.react.CodePush;
 import com.vonovak.AddCalendarEventPackage;
 import com.facebook.react.ReactNativeHost;
@@ -31,6 +32,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNCWebViewPackage(),
             new CodePush("GetaCq9eOW8vaB9k-glT9Eiu7Kf0ddab8bab-41f9-4d9e-b03c-c8c94c366a1b", getApplicationContext(), BuildConfig.DEBUG),
             new AddCalendarEventPackage()
       );
