@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet,Button} from 'react-native';
-import {createStackNavigator} from 'react-navigation'
+import {View, Text, StyleSheet,Button, AsyncStorage} from 'react-native';
+import {SafeAreaView} from 'react-navigation'
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -20,31 +20,18 @@ class LogoTitle extends React.Component {
 }
 
 class HomeScreen extends Component{
-    static navigationOptions = {
-        title: '首页',
-        headerStyle: {
-            backgroundColor: '#f4511e'
-        },
-        headerTintColor: '#fff',
-        headerTitleStyle: {
-            fontWeight: 'bold'
-        },
-        headerTitle: <LogoTitle/>,
-        headerRight: (
-            <Button
-                title='info'
-                color='#fff'
-                onPress={()=> alert('this is button')}
-            />
-        )
-    }
 
     constructor(props){
         super(props)
     }
+
+    _signOutAsync = async () => {
+        await AsyncStorage.clear();
+        this.props.navigation.navigate('Auth');
+    };
     render() {
         return (
-            <View style={styles.container}>
+            <SafeAreaView style={styles.container}>
                 <Text>首页</Text>
                 <Button
                     title='点击'
@@ -60,7 +47,11 @@ class HomeScreen extends Component{
                         title: '详情页'
                     })}
                 />
-            </View>
+                <Button
+                    title='Login out'
+                    onPress={this._signOutAsync}
+                />
+            </SafeAreaView>
         )
     }
 }

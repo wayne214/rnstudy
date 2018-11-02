@@ -6,6 +6,7 @@ import HomeScreen from './home/homeScreen';
 import DetailScreen from './Detail/detail';
 import ModalScreen from "./Detail/modalScreen";
 import settingScreen from "./setting/settingScreen";
+import LoginScreen from "./login/login";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const styles = StyleSheet.create({
@@ -31,7 +32,8 @@ const tabConfig = {
 const stackConfig = {
     transitionConfig: (()=>({
         screenInterpolator: StackViewStyleInterpolator.forHorizontal
-    }))
+    })),
+    headerMode: 'none'
 }
 
 const tabNavigator = {
@@ -66,16 +68,22 @@ const TabStack = createBottomTabNavigator(
     tabConfig
 );
 
+const AuthStack = createStackNavigator({ SignIn: LoginScreen }, {headerMode: 'none'});
+
 const AppStack = createStackNavigator({
     Tabs: TabStack,
     Details: DetailScreen,
 },
-    stackConfig
 );
 
 const AppNavigator = createSwitchNavigator({
-    AppStack
-});
+    App: AppStack,
+    Auth: AuthStack
+},
+    {
+    initialRouteName: 'Auth'
+}
+    );
 
 class root extends Component{
     constructor(props){
