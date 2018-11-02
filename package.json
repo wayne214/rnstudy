@@ -12,7 +12,9 @@
     "react-native": "0.55.4",
     "react-native-add-calendar-event": "^2.1.0",
     "react-native-code-push": "^5.4.2",
-    "react-native-webview-crossplatform": "^2.5.0"
+    "react-native-vector-icons": "^6.0.2",
+    "react-native-webview-crossplatform": "^2.5.0",
+    "react-navigation": "^2.18.2"
   },
   "devDependencies": {
     "babel-jest": "23.2.0",

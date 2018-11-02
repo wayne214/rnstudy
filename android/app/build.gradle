@@ -150,6 +150,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-vector-icons')
     compile project(':react-native-webview-crossplatform')
     compile project(':react-native-code-push')
     compile project(':react-native-add-calendar-event')
